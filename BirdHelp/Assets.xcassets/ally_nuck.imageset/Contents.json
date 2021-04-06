@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ally_nuck.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -24,7 +24,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="menu"/>
                                 <connections>
-                                    <segue destination="UB2-6m-moM" kind="push" id="jyg-EF-XnJ"/>
+                                    <segue destination="UB2-6m-moM" kind="modal" id="jyg-EF-XnJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="1471.0144927536232" y="1309.8214285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Bird View Controller-->
         <scene sceneID="ev6-MY-1is">
             <objects>
-                <viewController id="UB2-6m-moM" sceneMemberID="viewController">
+                <viewController id="UB2-6m-moM" customClass="BirdViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJW-iG-TY7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="z7j-hD-ObN" customClass="Cell" customModule="BirdHelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellBird" id="z7j-hD-ObN" customClass="BirdCell" customModule="BirdHelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7j-hD-ObN" id="if0-8J-jpH">
@@ -122,6 +122,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ip6-Rd-a32"/>
+                    <connections>
+                        <outlet property="tableView" destination="vB8-73-VGF" id="sOI-a3-d55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHC-Ag-sNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

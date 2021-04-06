@@ -7,7 +7,7 @@
 
 import UIKit
 //Permet d'acceder au éléments de la cellule 
-class Cell: UITableViewCell {
+class BirdCell: UITableViewCell {
     
     @IBOutlet var imageViewBird: UIImageView! // 
     @IBOutlet var label1: UILabel!

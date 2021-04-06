@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ally_chuck.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

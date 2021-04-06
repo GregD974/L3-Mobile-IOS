@@ -16,7 +16,9 @@
 		B8193E6026199FEF00496980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8193E5F26199FEF00496980 /* Assets.xcassets */; };
 		B8193E6B26199FF000496980 /* BirdHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8193E6A26199FF000496980 /* BirdHelpTests.swift */; };
 		B8193E7626199FF000496980 /* BirdHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8193E7526199FF000496980 /* BirdHelpUITests.swift */; };
-		B8486B6F261AEBF700D08E3E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* Cell.swift */; };
+		B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* BirdCell.swift */; };
+		B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63959261CBBBD009FBABA /* BirdViewController.swift */; };
+		B8B63962261CCD96009FBABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		B8193E7126199FF000496980 /* BirdHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirdHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8193E7526199FF000496980 /* BirdHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdHelpUITests.swift; sourceTree = "<group>"; };
 		B8193E7726199FF000496980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8486B6E261AEBF700D08E3E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		B8486B6E261AEBF700D08E3E /* BirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCell.swift; sourceTree = "<group>"; };
+		B8B63959261CBBBD009FBABA /* BirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdViewController.swift; sourceTree = "<group>"; };
+		B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +112,9 @@
 				B8193E5626199FEE00496980 /* Actions.sks */,
 				B8193E5826199FEE00496980 /* GameScene.swift */,
 				B8193E5A26199FEE00496980 /* GameViewController.swift */,
-				B8486B6E261AEBF700D08E3E /* Cell.swift */,
+				B8B63959261CBBBD009FBABA /* BirdViewController.swift */,
+				B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */,
+				B8486B6E261AEBF700D08E3E /* BirdCell.swift */,
 				B8193E5C26199FEE00496980 /* Main.storyboard */,
 				B8193E5F26199FEF00496980 /* Assets.xcassets */,
 				B8193E6126199FEF00496980 /* Info.plist */,
@@ -240,6 +246,7 @@
 				B8193E5E26199FEE00496980 /* Main.storyboard in Resources */,
 				B8193E5526199FEE00496980 /* GameScene.sks in Resources */,
 				B8193E6026199FEF00496980 /* Assets.xcassets in Resources */,
+				B8B63962261CCD96009FBABA /* LaunchScreen.storyboard in Resources */,
 				B8193E5726199FEE00496980 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8193E5926199FEE00496980 /* GameScene.swift in Sources */,
-				B8486B6F261AEBF700D08E3E /* Cell.swift in Sources */,
+				B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */,
+				B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */,
 				B8193E5B26199FEE00496980 /* GameViewController.swift in Sources */,
 				B8193E5326199FEE00496980 /* AppDelegate.swift in Sources */,
 			);

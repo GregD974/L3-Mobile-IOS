@@ -34,6 +34,12 @@ class GameViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? BirdViewController {
+            destination.controller = self
+        }
+    }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -45,5 +51,9 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func didSelectBird(_ bird: Bird) {
+        debugPrint(bird)
     }
 }

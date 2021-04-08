@@ -11,50 +11,67 @@ import UIKit
 
 class BirdViewController: UIViewController{
     
+    weak var controller: GameViewController!
+    // commentaire a mettre
     @IBOutlet var tableView: UITableView!
-    var birdTableViewDataSource: BirdTableViewDataSource!
+    var birdTableViewDataSourceAndDelegate: BirdTableViewDataSourceAndDelegate!
     override func viewDidLoad() { //
         super.viewDidLoad() //
         
-        birdTableViewDataSource = BirdTableViewDataSource.init()
-        tableView.dataSource = birdTableViewDataSource
+        birdTableViewDataSourceAndDelegate = BirdTableViewDataSourceAndDelegate.init() //
+        birdTableViewDataSourceAndDelegate.controller = self
+        tableView.dataSource = birdTableViewDataSourceAndDelegate
+        tableView.delegate = birdTableViewDataSourceAndDelegate
     }
+    
+    func didSelectBird(_ bird: Bird) {
+        controller.didSelectBird(bird)
+    }
+    
 }
 
-class BirdTableViewDataSource: NSObject, UITableViewDataSource {
+class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITableViewDelegate {
     
+    weak var controller: BirdViewController!
+    //commentaire a mettre
     var birds: [Bird] = {
         [
             Bird.init(name: "Chuck", highScore: 0, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Bird.init(name: "Will", highScore: 0, levelName: "Ville", image: UIImage.init(named: "ally_chuck")!),
-            Bird.init(name: "Nuck", highScore: 0, levelName: "Montagne", image: UIImage.init(named: "ally_chuck")!),
-            Bird.init(name: "Fox", highScore: 0, levelName: "Hiver", image:  UIImage.init(named: "ally_chuck")!)
+            Bird.init(name: "Will", highScore: 0, levelName: "Ville", image: UIImage.init(named: "ally_will")!),
+            Bird.init(name: "Nuck", highScore: 0, levelName: "Montagne", image: UIImage.init(named: "ally_nuck")!),
+            Bird.init(name: "Fox", highScore: 0, levelName: "Hiver", image:  UIImage.init(named: "ally_fox")!)
         ]
     }()
-    
+    //commentaire a mettre
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // nombre de ligne
         return birds.count // retourne 4 cellule / oiseau
     }
-    
+    //commentaire a mettre
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {//creer une cellule
-        
+        //commentaire a mettre
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellBird") else {
             return UITableViewCell()
         }
+        //commentaire a mettre
         guard let cellBird = cell as? BirdCell else {
             return UITableViewCell()
         }
+        //commentaire a mettre
         cellBird.label1.text = birds[indexPath.row].name
         cellBird.label2.text = String(birds[indexPath.row].highScore)
         cellBird.label3.text = birds[indexPath.row].levelName
         cellBird.imageViewBird.image = birds[indexPath.row].image
+        cellBird.configure()
         
         return cell
     }
-    
+    //savoir quelle celule est selectionner
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        controller.didSelectBird(birds[indexPath.row])
+    }
     
 }
-
+//commentaire a mettre
 struct Bird {
     var name:String
     var highScore:Int

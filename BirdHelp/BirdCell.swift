@@ -14,9 +14,15 @@ class BirdCell: UITableViewCell {
     @IBOutlet var label2: UILabel!
     @IBOutlet var label3: UILabel!
     
-    func configure() {
-        UIView.animate(withDuration: 0.2 , delay: 0, options: [.repeat,.autoreverse]) {
-            self.imageViewBird.transform = .init(scaleX:1.2, y: 1.2)
-        }
+    //commentaire a mettre
+    func configure() {//dispatchqueur receptionne la demande d'executer quelque chose c'est un thread, e
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            UIView.animate(withDuration: 0.2 , delay: 0, options: [.repeat,.autoreverse]) {
+                
+                self.imageViewBird.transform = .init(scaleX:1.2, y: 1.2)
+                
+            }
+        })
+
     }
 }

@@ -12,8 +12,15 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var bird : SKSpriteNode! //commentaire a mettre
+    
+   
     
     override func didMove(to view: SKView) {
+
+        
+        
+        self.bird = (childNode(withName:"//Bird") as! SKSpriteNode) // Commentaire a mettre
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -34,6 +41,7 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
     }
     
     
@@ -42,7 +50,9 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.green
             self.addChild(n)
+            
         }
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -51,6 +61,8 @@ class GameScene: SKScene {
             n.strokeColor = SKColor.blue
             self.addChild(n)
         }
+        
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -84,5 +96,20 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    //comment
+    func  didTapLeft() {
+        bird.run(SKAction.move(by: CGVector.init(dx: -10, dy: 0), duration: 0.1))
+    }
+    //comment
+    func  didTapRight() {
+        bird.run(SKAction.move(by: CGVector.init(dx: 10, dy: 0), duration: 0.1))
+        
+    }
+    //comment
+    func  didTapJump() {
+        bird.run(SKAction.move(by: CGVector.init(dx: 0, dy: 100), duration: 0.1))
+        
+        
     }
 }

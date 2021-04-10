@@ -10,6 +10,9 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    
+    var scene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,7 @@ class GameViewController: UIViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
+                self.scene = scene as! GameScene
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
@@ -34,7 +38,7 @@ class GameViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
-    
+    //commentaire a mettre
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? BirdViewController {
             destination.controller = self
@@ -56,4 +60,16 @@ class GameViewController: UIViewController {
     func didSelectBird(_ bird: Bird) {
         debugPrint(bird)
     }
+    
+    @IBAction func didTapLeft(){
+        scene.didTapLeft()
+    }
+    
+    @IBAction func didTapRight(){
+        scene.didTapRight()
+    }
+    @IBAction func didTapJump(){
+        scene.didTapJump()
+    }
+    
 }

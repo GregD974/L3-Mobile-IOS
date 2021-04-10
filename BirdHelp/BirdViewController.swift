@@ -11,29 +11,29 @@ import UIKit
 
 class BirdViewController: UIViewController{
     
-    weak var controller: GameViewController!
+    weak var controller: GameViewController!//
     // commentaire a mettre
-    @IBOutlet var tableView: UITableView!
-    var birdTableViewDataSourceAndDelegate: BirdTableViewDataSourceAndDelegate!
+    @IBOutlet var tableView: UITableView!//
+    var birdTableViewDataSourceAndDelegate: BirdTableViewDataSourceAndDelegate!//
     override func viewDidLoad() { //
         super.viewDidLoad() //
         
         birdTableViewDataSourceAndDelegate = BirdTableViewDataSourceAndDelegate.init() //
-        birdTableViewDataSourceAndDelegate.controller = self
-        tableView.dataSource = birdTableViewDataSourceAndDelegate
-        tableView.delegate = birdTableViewDataSourceAndDelegate
+        birdTableViewDataSourceAndDelegate.controller = self//
+        tableView.dataSource = birdTableViewDataSourceAndDelegate//
+        tableView.delegate = birdTableViewDataSourceAndDelegate//
     }
     
     func didSelectBird(_ bird: Bird) {
-        controller.didSelectBird(bird)
+        controller.didSelectBird(bird)//
     }
     
 }
 
 class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITableViewDelegate {
     
-    weak var controller: BirdViewController!
-    //commentaire a mettre
+    weak var controller: BirdViewController! //
+    //Initialise les 4 oiseaux
     var birds: [Bird] = {
         [
             Bird.init(name: "Chuck", highScore: 0, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
@@ -52,13 +52,13 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellBird") else {
             return UITableViewCell()
         }
-        //commentaire a mettre
+        //commentaire a mettre as pour cast
         guard let cellBird = cell as? BirdCell else {
             return UITableViewCell()
         }
         //commentaire a mettre
-        cellBird.label1.text = birds[indexPath.row].name
-        cellBird.label2.text = String(birds[indexPath.row].highScore)
+        cellBird.label1.text = birds[indexPath.row].name // recupere le nom de chaque oiseaux
+        cellBird.label2.text = String(birds[indexPath.row].highScore) //
         cellBird.label3.text = birds[indexPath.row].levelName
         cellBird.imageViewBird.image = birds[indexPath.row].image
         cellBird.configure()

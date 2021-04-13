@@ -10,15 +10,17 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var gameViewController: GameViewController!
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bird : SKSpriteNode! //commentaire a mettre
-    
-   
-    
+  
     override func didMove(to view: SKView) {
 
-        
+        let currentBird = UserDefaults.standard.string(forKey: "bird")!
+        let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)
+        gameViewController.scoreLabel.text = String(scoreInt)
         
         self.bird = (childNode(withName:"//Bird") as! SKSpriteNode) // Commentaire a mettre
         
@@ -46,6 +48,7 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
+        
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.green
@@ -99,11 +102,11 @@ class GameScene: SKScene {
     }
     //comment
     func  didTapLeft() {
-        bird.run(SKAction.move(by: CGVector.init(dx: -10, dy: 0), duration: 0.1))
+        bird.run(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.01))
     }
     //comment
     func  didTapRight() {
-        bird.run(SKAction.move(by: CGVector.init(dx: 10, dy: 0), duration: 0.1))
+        bird.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.01))
         
     }
     //comment

@@ -23,7 +23,7 @@ class BirdViewController: UIViewController{
         tableView.dataSource = birdTableViewDataSourceAndDelegate//
         tableView.delegate = birdTableViewDataSourceAndDelegate//
     }
-    
+    //commentaire a mettre
     func didSelectBird(_ bird: Bird) {
         controller.didSelectBird(bird)//
     }
@@ -35,11 +35,16 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
     weak var controller: BirdViewController! //
     //Initialise les 4 oiseaux
     var birds: [Bird] = {
-        [
-            Bird.init(name: "Chuck", highScore: 0, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Bird.init(name: "Will", highScore: 0, levelName: "Ville", image: UIImage.init(named: "ally_will")!),
-            Bird.init(name: "Nuck", highScore: 0, levelName: "Montagne", image: UIImage.init(named: "ally_nuck")!),
-            Bird.init(name: "Fox", highScore: 0, levelName: "Hiver", image:  UIImage.init(named: "ally_fox")!)
+        let allyChuckScore = UserDefaults.standard.integer(forKey: "ally_chuck")
+        let allyWillScore = UserDefaults.standard.integer(forKey: "ally_will")
+        let allyNuckScore = UserDefaults.standard.integer(forKey: "ally_nuck")
+        let allyFoxScore = UserDefaults.standard.integer(forKey: "ally_fox")
+        
+        return [
+            Bird.init(name: "Chuck", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
+            Bird.init(name: "Will", highScore: allyWillScore, levelName: "Ville", image: UIImage.init(named: "ally_will")!),
+            Bird.init(name: "Nuck", highScore: allyNuckScore, levelName: "Montagne", image: UIImage.init(named: "ally_nuck")!),
+            Bird.init(name: "Fox", highScore: allyFoxScore, levelName: "Hiver", image:  UIImage.init(named: "ally_fox")!)
         ]
     }()
     //commentaire a mettre

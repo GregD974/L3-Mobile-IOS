@@ -14,7 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if UserDefaults.standard.string(forKey: "bird") == nil {
+            UserDefaults.standard.set("ally_chuck", forKey: "bird")
+        }
+        
+        UserDefaults.standard.set(2000, forKey: "ally_chuck")
+        
         return true
     }
 

@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set("ally_chuck", forKey: "bird")
         }
         
-        UserDefaults.standard.set(2000, forKey: "ally_chuck")
         
+        
+
         return true
     }
 

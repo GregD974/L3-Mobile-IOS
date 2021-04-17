@@ -15,9 +15,13 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bird : SKSpriteNode! //commentaire a mettre
+    private var timer : Timer?
   
     override func didMove(to view: SKView) {
-
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
+            NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
+        })
         let currentBird = UserDefaults.standard.string(forKey: "bird")!
         let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)
         gameViewController.scoreLabel.text = String(scoreInt)
@@ -30,19 +34,7 @@ class GameScene: SKScene {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
         }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+
         
     }
     
@@ -102,14 +94,28 @@ class GameScene: SKScene {
     }
     //comment
     func  didTapLeft() {
-        bird.run(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.01))
+        bird.run(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1))
     }
     //comment
+    func didTapLeftForever(){
+        bird.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1)))
+    }
+    func didTapLeftTouchUp(){
+        bird.removeAllActions()
+    }    
     func  didTapRight() {
-        bird.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.01))
+        bird.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
         
     }
-    //comment
+    func didTapRightForever(){
+        bird.run(.repeatForever(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1)))
+    }    //comment
+    
+    func didTapRightTouchUp(){
+        bird.removeAllActions()
+        
+    }
+    
     func  didTapJump() {
         bird.run(SKAction.move(by: CGVector.init(dx: 0, dy: 100), duration: 0.1))
         

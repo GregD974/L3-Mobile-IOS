@@ -62,16 +62,38 @@ class GameViewController: UIViewController {
         debugPrint(bird)
     }
     //comment
+    var timerLeft: Timer?
     @IBAction func didTapLeft(){
         scene.didTapLeft()
+        timerLeft = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { _ in
+            self.scene.didTapLeftForever()
+        })
     }
+    
+    @IBAction func didTouchUpLeft() {
+        
+        scene.didTapLeftTouchUp() //
+        timerLeft?.invalidate()
+    } // comment
+
     //comment
-    @IBAction func didTapRight(){
+    var timerRight: Timer?
+    @IBAction func didTapRight(){// comment
         scene.didTapRight()
+        timerRight = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { _ in
+            self.scene.didTapRightForever()
+        })
     }
-    //comment
-    @IBAction func didTapJump(){
+    @IBAction func didTouchUpRight() {
+        scene.didTapRightTouchUp()
+        timerRight?.invalidate()
+    }    //comment
+
+    
+    @IBAction func didTapJump(){//comment
         scene.didTapJump()
     }
+    
+    
     
 }

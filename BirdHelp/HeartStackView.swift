@@ -26,6 +26,23 @@ class HeartStackView:UIStackView {
                 }
             }
             heartToHide?.isHidden = true
+            
+            if self.testGameOver() {
+                NotificationCenter.default.post(name: notifAppGameOver, object: nil)
+            }
         } // notification pour clavier / appli fermer etc
+    }
+    
+    func testGameOver() -> Bool {
+        var counter: Int = 0
+        for item in heartsConnect {
+            if item.isHidden{
+                counter += 1
+            }
+        }
+        if counter == 3 {
+         return true
+        }
+        return false
     }
 }

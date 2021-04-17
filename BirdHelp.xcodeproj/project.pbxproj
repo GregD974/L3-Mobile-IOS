@@ -19,6 +19,8 @@
 		B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* BirdCell.swift */; };
 		B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63959261CBBBD009FBABA /* BirdViewController.swift */; };
 		B8B63962261CCD96009FBABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */; };
+		B8D08281262B3DA1009406E3 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D08280262B3DA1009406E3 /* GameOverViewController.swift */; };
+		B8D08286262B4A67009406E3 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D08285262B4A67009406E3 /* AppNotification.swift */; };
 		B8D9EFC8262AA6AE004A8974 /* HeartStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9EFC7262AA6AE004A8974 /* HeartStackView.swift */; };
 		B8D9EFCD262AAFD9004A8974 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9EFCC262AAFD9004A8974 /* ScoreLabel.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		B8486B6E261AEBF700D08E3E /* BirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCell.swift; sourceTree = "<group>"; };
 		B8B63959261CBBBD009FBABA /* BirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdViewController.swift; sourceTree = "<group>"; };
 		B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8D08280262B3DA1009406E3 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		B8D08285262B4A67009406E3 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		B8D9EFC7262AA6AE004A8974 /* HeartStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartStackView.swift; sourceTree = "<group>"; };
 		B8D9EFCC262AAFD9004A8974 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,13 +118,15 @@
 				B8193E5226199FEE00496980 /* AppDelegate.swift */,
 				B8193E5426199FEE00496980 /* GameScene.sks */,
 				B8193E5626199FEE00496980 /* Actions.sks */,
-				B8193E5826199FEE00496980 /* GameScene.swift */,
 				B8193E5A26199FEE00496980 /* GameViewController.swift */,
 				B8B63959261CBBBD009FBABA /* BirdViewController.swift */,
+				B8193E5826199FEE00496980 /* GameScene.swift */,
 				B8D9EFC7262AA6AE004A8974 /* HeartStackView.swift */,
+				B8D08285262B4A67009406E3 /* AppNotification.swift */,
 				B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */,
 				B8486B6E261AEBF700D08E3E /* BirdCell.swift */,
 				B8193E5C26199FEE00496980 /* Main.storyboard */,
+				B8D08280262B3DA1009406E3 /* GameOverViewController.swift */,
 				B8D9EFCC262AAFD9004A8974 /* ScoreLabel.swift */,
 				B8193E5F26199FEF00496980 /* Assets.xcassets */,
 				B8193E6126199FEF00496980 /* Info.plist */,
@@ -280,8 +286,10 @@
 			files = (
 				B8D9EFC8262AA6AE004A8974 /* HeartStackView.swift in Sources */,
 				B8193E5926199FEE00496980 /* GameScene.swift in Sources */,
+				B8D08286262B4A67009406E3 /* AppNotification.swift in Sources */,
 				B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */,
 				B8D9EFCD262AAFD9004A8974 /* ScoreLabel.swift in Sources */,
+				B8D08281262B3DA1009406E3 /* GameOverViewController.swift in Sources */,
 				B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */,
 				B8193E5B26199FEE00496980 /* GameViewController.swift in Sources */,
 				B8193E5326199FEE00496980 /* AppDelegate.swift in Sources */,

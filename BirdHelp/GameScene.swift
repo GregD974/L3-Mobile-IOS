@@ -18,13 +18,21 @@ class GameScene: SKScene {
     private var timer : Timer?
   
     override func didMove(to view: SKView) {
+        //commentaire a mettre
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
             NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
         })
-        let currentBird = UserDefaults.standard.string(forKey: "bird")!
-        let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)
-        gameViewController.scoreLabel.text = String(scoreInt)
+        NotificationCenter.default.addObserver(forName: notifAppGameOver, object: nil, queue: .main) { _ in
+            guard let vController = self.gameViewController.storyboard?.instantiateViewController(identifier: "gameover") else {
+                return
+            }
+            self.gameViewController.present(vController, animated: true, completion: nil)
+        }
+        
+        let currentBird = UserDefaults.standard.string(forKey: "bird")! // commentaire a mettre
+        let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)//commentaire a mettre
+        gameViewController.scoreLabel.text = String(scoreInt) // commentaire a mettre
         
         self.bird = (childNode(withName:"//Bird") as! SKSpriteNode) // Commentaire a mettre
         
@@ -38,6 +46,7 @@ class GameScene: SKScene {
         
     }
     
+   
     
     func touchDown(atPoint pos : CGPoint) {
         
@@ -92,14 +101,15 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-    //comment
+    //Fonction pour que le personnage bouge de -15 sur la gauche avec un temps de 100 miliseconde pour le bouton gauche
     func  didTapLeft() {
         bird.run(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1))
     }
-    //comment
+    //fonction utiliser pour quand on reste appuyer sur le bouton cela répète le mouvement
     func didTapLeftForever(){
         bird.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1)))
     }
+    //fonction utiliser pour quand il arrête d'appuyer cela arrete le mouvement dans tout les cas
     func didTapLeftTouchUp(){
         bird.removeAllActions()
     }    

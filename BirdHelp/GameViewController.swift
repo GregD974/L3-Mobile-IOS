@@ -8,15 +8,22 @@
 import UIKit
 import SpriteKit
 import GameplayKit
-
+// la classe gameviewcontroller hérite du type UIviewcontroller
 class GameViewController: UIViewController {
-    
+    // on rattache le scoreLabel avec IBoutlet
     @IBOutlet var scoreLabel: UILabel!
     var scene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
+            self.configurationScene()
+        }
+        configurationScene()
+
+    }
+    
+    func configurationScene() {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") as? GameScene  {
@@ -94,6 +101,6 @@ class GameViewController: UIViewController {
         scene.didTapJump()
     }
     
-    
+   
     
 }

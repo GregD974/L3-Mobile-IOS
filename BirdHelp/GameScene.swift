@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var gameViewController: GameViewController!
     
@@ -19,7 +19,38 @@ class GameScene: SKScene {
     private var background : SKSpriteNode!
     private var floor1: SKSpriteNode!
     private var floor2: SKSpriteNode!
-  
+    // commentaire a mettre methode executer a chaque fois qu'il y a un contact avec objet
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let bodyAName = contact.bodyA.node?.name, let bodyBName = contact.bodyB.node?.name else {
+            return
+        }
+        if bodyAName == "Coin" || bodyBName == "Coin"{
+            NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
+            if bodyAName == "Coin"{
+                contact.bodyA.node?.removeFromParent()
+            }else{
+                contact.bodyB.node?.removeFromParent()
+                
+            }
+        }
+        if bodyAName == "water1Test" || bodyBName == "water1Test" {
+            NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
+            if bodyAName == "water1Test"{
+                contact.bodyA.node?.physicsBody?.contactTestBitMask = 0
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+            }else{
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.physicsBody?.contactTestBitMask = 0
+                
+            }
+        }
+        
+        print(contact.bodyA)
+        print(contact.bodyB)
+        print("---")
+    }
+    
+    
     override func didMove(to view: SKView) {
         //commentaire a mettre
         NotificationCenter.default.addObserver(forName: notifAppGameOver, object: nil, queue: .main) { _ in
@@ -28,6 +59,8 @@ class GameScene: SKScene {
             }
             self.gameViewController.present(vController, animated: true, completion: nil)
         }
+        
+        scene?.physicsWorld.contactDelegate = self
         
         let currentBird = UserDefaults.standard.string(forKey: "bird")! // commentaire a mettre
         let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)//commentaire a mettre
@@ -61,12 +94,8 @@ class GameScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-        
+
+        bird.position = pos
         
     }
     

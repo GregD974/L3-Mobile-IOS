@@ -22,6 +22,10 @@ class ScoreLabel : UILabel {
             self.score += 1
             self.text = String(self.score)
         }
+        NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
+            self.score = 0
+            self.text = String(self.score)
+        }
         
     }
     

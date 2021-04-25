@@ -17,7 +17,7 @@ class HeartStackView:UIStackView {
         
         super.awakeFromNib() // fait la liaison avec UISTACKVIEW
 
-        NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification, object: nil, queue: .main) { (notification) in
+        NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification, object: nil, queue: .main) { _ in
             let heartToHide = self.heartsConnect.reversed().first { (imageView) -> Bool in
                 if imageView.isHidden == false {
                     return true
@@ -31,6 +31,11 @@ class HeartStackView:UIStackView {
                 NotificationCenter.default.post(name: notifAppGameOver, object: nil)
             }
         } // notification pour clavier / appli fermer etc
+        NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
+            for heart in self.heartsConnect{
+                heart.isHidden = false
+            }
+        }
     }
     
     func testGameOver() -> Bool {

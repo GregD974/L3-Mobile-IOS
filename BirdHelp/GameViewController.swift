@@ -19,6 +19,16 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
             self.configurationScene()
         }
+        NotificationCenter.default.addObserver(forName: notifAppGameWin, object: nil, queue: .main) { _ in
+            let alertController = UIAlertController.init(title: "Win", message: "You win", preferredStyle: UIAlertController.Style.alert)
+            let buttonC = UIAlertAction.init(title: "Okay", style: UIAlertAction.Style.default) { _ in
+                NotificationCenter.default.post(name: GameOverViewController.notificationReset, object: nil)
+            }
+            alertController.addAction(buttonC)
+            self.present(alertController, animated: true) {
+                
+            }
+        }
         configurationScene()
 
     }

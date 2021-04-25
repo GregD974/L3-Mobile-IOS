@@ -12,10 +12,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var gameViewController: GameViewController!
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    
     private var bird : SKSpriteNode! //commentaire a mettre
-    private var timer : Timer?
+   
     private var background : SKSpriteNode!
     private var floor1: SKSpriteNode!
     private var floor2: SKSpriteNode!
@@ -45,9 +44,19 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             }
         }
         
-        print(contact.bodyA)
-        print(contact.bodyB)
-        print("---")
+        if bodyAName == "EndGame" || bodyBName == "EndGame"{
+            NotificationCenter.default.post(name: notifAppGameWin , object: nil)
+            if bodyAName == "EndGame"{
+                contact.bodyA.node?.removeFromParent()
+                
+            }else{
+                contact.bodyB.node?.removeFromParent()
+                
+            }
+            
+        }
+        
+        
     }
     
     
@@ -69,13 +78,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.bird = (childNode(withName:"//Bird") as! SKSpriteNode) // Commentaire a mettre
         self.background = (childNode(withName:"//bg") as! SKSpriteNode)
         // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
+        
         self.floor1 = self.childNode(withName: "//flor1") as? SKSpriteNode
         self.floor2 = self.childNode(withName: "//flor2") as? SKSpriteNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+     
 
         
     }
@@ -84,12 +90,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     func touchDown(atPoint pos : CGPoint) {
         
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
+       
             
-        }
+        
         
     }
     
@@ -100,17 +103,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+       
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }

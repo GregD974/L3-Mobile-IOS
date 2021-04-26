@@ -13,16 +13,21 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var gameViewController: GameViewController!
     
     
-    private var bird : SKSpriteNode! //commentaire a mettre
+     //commentaire a mettre
    
     private var background : SKSpriteNode!
-    private var floor1: SKSpriteNode!
-    private var floor2: SKSpriteNode!
+    private var perso : SKSpriteNode!
+    private var plateforme : SKSpriteNode!
+    private var coin : [SKNode] = []
+    
     // commentaire a mettre methode executer a chaque fois qu'il y a un contact avec objet
     func didBegin(_ contact: SKPhysicsContact) {
         guard let bodyAName = contact.bodyA.node?.name, let bodyBName = contact.bodyB.node?.name else {
             return
         }
+        print(bodyAName)
+        print(bodyBName)
+        print("---")
         if bodyAName == "Coin" || bodyBName == "Coin"{
             NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
             if bodyAName == "Coin"{
@@ -32,6 +37,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 
             }
         }
+        //A SUPPRIMER
         if bodyAName == "water1Test" || bodyBName == "water1Test" {
             NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
             if bodyAName == "water1Test"{
@@ -56,7 +62,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             
         }
         
-        
+    
     }
     
     
@@ -75,12 +81,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)//commentaire a mettre
         gameViewController.scoreLabel.text = String(scoreInt) // commentaire a mettre
         
-        self.bird = (childNode(withName:"//Bird") as! SKSpriteNode) // Commentaire a mettre
+         // Commentaire a mettre
         self.background = (childNode(withName:"//bg") as! SKSpriteNode)
-        // Get label node from scene and store it for use later
+        self.perso = (childNode(withName: "//perso")as! SKSpriteNode)
+        self.plateforme = (childNode(withName: "//plateforme")as! SKSpriteNode)
         
-        self.floor1 = self.childNode(withName: "//flor1") as? SKSpriteNode
-        self.floor2 = self.childNode(withName: "//flor2") as? SKSpriteNode
+        enumerateChildNodes(withName: "//Coin") { (coin, _) in
+            self.coin.append(coin as! SKSpriteNode)
+        }
+        
+        
      
 
         
@@ -98,7 +108,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     func touchMoved(toPoint pos : CGPoint) {
 
-        bird.position = pos
+       
         
     }
     
@@ -129,34 +139,64 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         // Called before each frame is rendered
     }
     //Fonction pour que le personnage bouge de -15 sur la gauche avec un temps de 100 miliseconde pour le bouton gauche
+    var dx:Int = 15
+    var dxDuration:Double =  0.1
     func  didTapLeft() {
-        bird.run(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1))
+        background.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
+        plateforme.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
+        for item in coin{
+            item.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
+            
+        }
     }
     //fonction utiliser pour quand on reste appuyer sur le bouton cela répète le mouvement
     func didTapLeftForever(){
-        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1)))
-    }
+        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
+        plateforme.run(.repeatForever(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
+        for item in coin{
+            item.run(.repeatForever(.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
+            
+        }    }
     //fonction utiliser pour quand il arrête d'appuyer cela arrete le mouvement dans tout les cas
     func didTapLeftTouchUp(){
         background.removeAllActions()
-    }    
-    func  didTapRight() {
-        background.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
+        plateforme.removeAllActions()
+        for item in coin{
+            item.removeAllActions()
+            
+        }
         
     }
-    func didTapRightForever(){
-        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1)))
+    func  didTapRight() {
+        background.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
+        plateforme.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
+        for item in coin{
+            item.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
             
+        }
+    }
+    func didTapRightForever(){
+        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
+        plateforme.run(.repeatForever(.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
+        for item in coin{
+            item.run(.repeatForever(.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
+            
+        }
+        
     }
     
     func didTapRightTouchUp(){
         background.removeAllActions()
-        
+        plateforme.removeAllActions()
+        for item in coin{
+            item.removeAllActions()
+            
+        }
         
     }
     
     func  didTapJump() {
-        bird.run(SKAction.move(by: CGVector.init(dx: 0, dy: 100), duration: 0.1))
+        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 20), duration: dxDuration))
         
         
     }

@@ -39,7 +39,7 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "GameScene") as? GameScene  {
                 // Set the scale mode to scale to fit the window
                 self.scene = (scene as! GameScene)
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
                 scene.gameViewController = self
                 
                 // Present the scene
@@ -62,13 +62,9 @@ class GameViewController: UIViewController {
             destination.controller = self
         }
     }
-
+    //systeme qui demande au systeme l'orientation et on veux que en landscape
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return .landscape
     }
 
     override var prefersStatusBarHidden: Bool {

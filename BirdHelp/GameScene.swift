@@ -142,19 +142,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }    
     func  didTapRight() {
         background.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
-        floor1.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
-        floor2.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
+        
     }
     func didTapRightForever(){
         background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -15, dy: 0), duration: 0.1)))
-            floor1.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
-    floor2.run(SKAction.move(by: CGVector.init(dx: 15, dy: 0), duration: 0.1))
+            
     }
     
     func didTapRightTouchUp(){
         background.removeAllActions()
-        floor1.removeAllActions()
-        floor2.removeAllActions()
+        
         
     }
     

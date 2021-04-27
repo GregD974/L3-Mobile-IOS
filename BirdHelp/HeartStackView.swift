@@ -16,7 +16,7 @@ class HeartStackView:UIStackView {
     override func awakeFromNib() {
         
         super.awakeFromNib() // fait la liaison avec UISTACKVIEW
-
+        //On procede a une ecoute
         NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification, object: nil, queue: .main) { _ in
             let heartToHide = self.heartsConnect.reversed().first { (imageView) -> Bool in
                 if imageView.isHidden == false {

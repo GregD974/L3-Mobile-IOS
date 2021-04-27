@@ -36,15 +36,11 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
     //Initialise les 4 oiseaux
     var birds: [Bird] = {
         let allyChuckScore = UserDefaults.standard.integer(forKey: "ally_chuck")
-        let allyWillScore = UserDefaults.standard.integer(forKey: "ally_will")
-        let allyNuckScore = UserDefaults.standard.integer(forKey: "ally_nuck")
-        let allyFoxScore = UserDefaults.standard.integer(forKey: "ally_fox")
+        
         
         return [
             Bird.init(name: "Chuck", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Bird.init(name: "Will", highScore: allyWillScore, levelName: "Ville", image: UIImage.init(named: "ally_will")!),
-            Bird.init(name: "Nuck", highScore: allyNuckScore, levelName: "Montagne", image: UIImage.init(named: "ally_nuck")!),
-            Bird.init(name: "Fox", highScore: allyFoxScore, levelName: "Hiver", image:  UIImage.init(named: "ally_fox")!)
+        
         ]
     }()
     //commentaire a mettre

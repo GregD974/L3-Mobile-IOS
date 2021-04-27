@@ -13,12 +13,24 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var gameViewController: GameViewController!
     
     
-     //commentaire a mettre
-   
+    //commentaire a mettre
+    
     private var background : SKSpriteNode!
     private var perso : SKSpriteNode!
     private var plateforme : SKSpriteNode!
     private var coin : [SKNode] = []
+    private var texturePont : SKSpriteNode!
+    private var platHaut1 : SKSpriteNode!
+    private var platHaut2 : SKSpriteNode!
+    private var platHaut3 : SKSpriteNode!
+    private var goldenPlat : SKSpriteNode!
+    private var longPlateforme : SKSpriteNode!
+    private var pontHaut : SKSpriteNode!
+    private var finalText : SKSpriteNode!
+    private var longPlateforme2 : SKSpriteNode!
+    
+    
+    
     
     // commentaire a mettre methode executer a chaque fois qu'il y a un contact avec objet
     func didBegin(_ contact: SKPhysicsContact) {
@@ -38,17 +50,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             }
         }
         //A SUPPRIMER
-        if bodyAName == "water1Test" || bodyBName == "water1Test" {
-            NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
-            if bodyAName == "water1Test"{
-                contact.bodyA.node?.physicsBody?.contactTestBitMask = 0
-                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
-            }else{
-                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
-                contact.bodyB.node?.physicsBody?.contactTestBitMask = 0
-                
-            }
-        }
+        
         
         if bodyAName == "EndGame" || bodyBName == "EndGame"{
             NotificationCenter.default.post(name: notifAppGameWin , object: nil)
@@ -62,7 +64,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             
         }
         
-    
+        
     }
     
     
@@ -80,44 +82,52 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         let currentBird = UserDefaults.standard.string(forKey: "bird")! // commentaire a mettre
         let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)//commentaire a mettre
         gameViewController.scoreLabel.text = String(scoreInt) // commentaire a mettre
-        
-         // Commentaire a mettre
+        // Commentaire a mettre
         self.background = (childNode(withName:"//bg") as! SKSpriteNode)
         self.perso = (childNode(withName: "//perso")as! SKSpriteNode)
         self.plateforme = (childNode(withName: "//plateforme")as! SKSpriteNode)
+        self.texturePont = (childNode(withName: "//texturePont")as! SKSpriteNode)
+        self.platHaut1 = (childNode(withName: "//plateformeHaut1")as! SKSpriteNode)
+        self.platHaut2 = (childNode(withName: "//plateformeHaut2")as! SKSpriteNode)
+        self.platHaut3 = (childNode(withName: "//plateformeHaut3")as! SKSpriteNode)
+        self.goldenPlat = (childNode(withName: "//goldenPlat")as! SKSpriteNode)
+        self.longPlateforme = (childNode(withName: "//longPlateforme")as! SKSpriteNode)
+        self.longPlateforme2 = (childNode(withName: "//longPlateforme2")as! SKSpriteNode)
+        self.pontHaut = (childNode(withName: "//pontHaut")as! SKSpriteNode)
+        self.finalText = (childNode(withName: "//finaltext")as! SKSpriteNode)
         
         enumerateChildNodes(withName: "//Coin") { (coin, _) in
             self.coin.append(coin as! SKSpriteNode)
         }
         
         
-     
-
+        
+        
         
     }
     
-   
+    
     
     func touchDown(atPoint pos : CGPoint) {
         
-       
-            
+        
+        
         
         
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-
-       
+        
+        
         
     }
     
     func touchUp(atPoint pos : CGPoint) {
-       
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+        
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
@@ -138,65 +148,141 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+    func moveByXforever(_ x:Int, _ duration:Double){
+        debugPrint("---")
+        debugPrint(x)
+        debugPrint(background.position.x)
+        debugPrint( -(self.size.width / 2))
+        debugPrint("---")
+        if x < 0 {
+            //bouton droite qui est appuyer
+            
+            
+        }else{
+            //bouton gauche qui est appuyer
+            if background.position.x >= -(self.size.width / 2) {
+                return
+            }
+        }
+        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        plateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        texturePont.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        platHaut1.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        platHaut2.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        platHaut3.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        goldenPlat.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        longPlateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        longPlateforme2.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        pontHaut.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        finalText.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        if x > 0{
+            perso.run(SKAction.init(named:"animateLeft" )!)
+            
+        }else{
+            perso.run(SKAction.init(named:"animateRight" )!)
+            
+        }
+        for item in coin{
+            item.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        }
+    }
+    func moveByX(_ x:Int, _ duration:Double){
+        debugPrint("---")
+        debugPrint(x)
+        debugPrint(background.position.x)
+        debugPrint( -(self.size.width / 2))
+        debugPrint("---")
+        if x < 0 {
+            //bouton droite qui est appuyer
+            
+            
+        }else{
+            //bouton gauche qui est appuyer
+            if background.position.x >= -(self.size.width / 2) {
+                return
+            }
+        }
+
+        background.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        plateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        texturePont.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        platHaut1.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        platHaut2.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        platHaut3.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        goldenPlat.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        longPlateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        longPlateforme2.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        pontHaut.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        finalText.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        if x > 0{
+            perso.run(SKAction.init(named:"animateLeft" )!)
+            
+        }else{
+            perso.run(SKAction.init(named:"animateRight" )!)
+            
+        }
+        
+        
+        
+        for item in coin{
+            item.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+            
+        }
+    }
+    func removeAllAct(){
+        background.removeAllActions()
+        plateforme.removeAllActions()
+        texturePont.removeAllActions()
+        platHaut1.removeAllActions()
+        platHaut2.removeAllActions()
+        platHaut3.removeAllActions()
+        goldenPlat.removeAllActions()
+        longPlateforme.removeAllActions()
+        longPlateforme2.removeAllActions()
+        pontHaut.removeAllActions()
+        finalText.removeAllActions()
+        perso.removeAllActions()
+        
+        
+        
+        for item in coin{
+            item.removeAllActions()
+            
+        }
+        
+    }
+    
     //Fonction pour que le personnage bouge de -15 sur la gauche avec un temps de 100 miliseconde pour le bouton gauche
     var dx:Int = 15
     var dxDuration:Double =  0.1
     func  didTapLeft() {
-        background.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
-        plateforme.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
-        for item in coin{
-            item.run(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration))
-            
-        }
+        moveByX(dx, dxDuration)
     }
     //fonction utiliser pour quand on reste appuyer sur le bouton cela répète le mouvement
     func didTapLeftForever(){
-        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
-        plateforme.run(.repeatForever(SKAction.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
-        for item in coin{
-            item.run(.repeatForever(.move(by: CGVector.init(dx: dx, dy: 0), duration: dxDuration)))
-            
-        }    }
+        moveByXforever(dx, dxDuration)
+    }
     //fonction utiliser pour quand il arrête d'appuyer cela arrete le mouvement dans tout les cas
     func didTapLeftTouchUp(){
-        background.removeAllActions()
-        plateforme.removeAllActions()
-        for item in coin{
-            item.removeAllActions()
-            
-        }
+        removeAllAct()
         
     }
     func  didTapRight() {
-        background.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
-        plateforme.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
-        for item in coin{
-            item.run(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration))
-            
-        }
+        moveByX(-dx, dxDuration)
     }
     func didTapRightForever(){
-        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
-        plateforme.run(.repeatForever(.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
-        for item in coin{
-            item.run(.repeatForever(.move(by: CGVector.init(dx: -dx, dy: 0), duration: dxDuration)))
-            
-        }
+        moveByXforever(-dx, dxDuration)
         
     }
     
     func didTapRightTouchUp(){
-        background.removeAllActions()
-        plateforme.removeAllActions()
-        for item in coin{
-            item.removeAllActions()
-            
-        }
+        
+        removeAllAct()
         
     }
     
     func  didTapJump() {
-        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 20), duration: dxDuration))
+        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 70), duration: dxDuration))
         
         
     }

@@ -9,7 +9,7 @@ import UIKit
 
 
 class ScoreLabel : UILabel {
-    var score: Int = 0 // on definit le score de base
+    private var score: Int = 0 // on definit le score de base
     static let scoreNotification : Notification.Name = Notification.Name.init("scoreNotification") // on crée la variable scoreNotification de type Notification.Name et on l'initialise au nom de scoreNotification
     
     
@@ -22,9 +22,18 @@ class ScoreLabel : UILabel {
             self.score += 1
             self.text = String(self.score)
         }
-        NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
+        NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
+            let playerId = UserDefaults.standard.string(forKey: "bird")!
+            let highScore = UserDefaults.standard.integer(forKey: playerId)
+            
+            if self.score > highScore {
+                UserDefaults.standard.setValue(self.score, forKey: playerId)
+            }
+            
+           
             self.score = 0
             self.text = String(self.score)
+            
         }
         
     }

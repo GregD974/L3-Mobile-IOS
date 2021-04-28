@@ -14,6 +14,7 @@
 		B8193E5E26199FEE00496980 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8193E5C26199FEE00496980 /* Main.storyboard */; };
 		B8193E6026199FEF00496980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8193E5F26199FEF00496980 /* Assets.xcassets */; };
 		B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* BirdCell.swift */; };
+		B89F6ED02639D881008D148A /* app_src_main_res_raw_theme (1).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89F6ECF2639D880008D148A /* app_src_main_res_raw_theme (1).mp3 */; };
 		B8ACEE8126387DE900FBD458 /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8ACEE8026387DE900FBD458 /* MyActions.sks */; };
 		B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63959261CBBBD009FBABA /* BirdViewController.swift */; };
 		B8B63962261CCD96009FBABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		B8193E5F26199FEF00496980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8193E6126199FEF00496980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8486B6E261AEBF700D08E3E /* BirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCell.swift; sourceTree = "<group>"; };
+		B89F6ECF2639D880008D148A /* app_src_main_res_raw_theme (1).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "app_src_main_res_raw_theme (1).mp3"; path = "../../../../Music/Music/Media.localized/Unknown Artist/Unknown Album/app_src_main_res_raw_theme (1).mp3"; sourceTree = "<group>"; };
 		B8ACEE8026387DE900FBD458 /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyActions.sks; sourceTree = "<group>"; };
 		B8B63959261CBBBD009FBABA /* BirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdViewController.swift; sourceTree = "<group>"; };
 		B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				B8B63959261CBBBD009FBABA /* BirdViewController.swift */,
 				B8193E5826199FEE00496980 /* GameScene.swift */,
 				B8ACEE8026387DE900FBD458 /* MyActions.sks */,
+				B89F6ECF2639D880008D148A /* app_src_main_res_raw_theme (1).mp3 */,
 				B8D9EFC7262AA6AE004A8974 /* HeartStackView.swift */,
 				B8D08285262B4A67009406E3 /* AppNotification.swift */,
 				B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89F6ED02639D881008D148A /* app_src_main_res_raw_theme (1).mp3 in Resources */,
 				B8ACEE8126387DE900FBD458 /* MyActions.sks in Resources */,
 				B8193E5E26199FEE00496980 /* Main.storyboard in Resources */,
 				B8193E5526199FEE00496980 /* GameScene.sks in Resources */,

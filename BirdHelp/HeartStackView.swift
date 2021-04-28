@@ -31,7 +31,7 @@ class HeartStackView:UIStackView {
                 NotificationCenter.default.post(name: notifAppGameOver, object: nil)
             }
         } // notification pour clavier / appli fermer etc
-        NotificationCenter.default.addObserver(forName: GameOverViewController.notificationReset, object: nil, queue: .main) { _ in
+        NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
             for heart in self.heartsConnect{
                 heart.isHidden = false
             }

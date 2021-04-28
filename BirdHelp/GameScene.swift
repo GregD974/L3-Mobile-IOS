@@ -79,9 +79,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         scene?.physicsWorld.contactDelegate = self
         
-        let currentBird = UserDefaults.standard.string(forKey: "bird")! // commentaire a mettre
-        let scoreInt =  UserDefaults.standard.integer(forKey: currentBird)//commentaire a mettre
-        gameViewController.scoreLabel.text = String(scoreInt) // commentaire a mettre
+
         // Commentaire a mettre
         self.background = (childNode(withName:"//bg") as! SKSpriteNode)
         self.perso = (childNode(withName: "//perso")as! SKSpriteNode)
@@ -154,16 +152,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         debugPrint(background.position.x)
         debugPrint( -(self.size.width / 2))
         debugPrint("---")
-        if x < 0 {
-            //bouton droite qui est appuyer
-            
-            
-        }else{
-            //bouton gauche qui est appuyer
-            if background.position.x >= -(self.size.width / 2) {
-                return
-            }
-        }
+
         background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         plateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         texturePont.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
@@ -192,15 +181,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         debugPrint(background.position.x)
         debugPrint( -(self.size.width / 2))
         debugPrint("---")
-        if x < 0 {
+        if x > -800 {
             //bouton droite qui est appuyer
+            //NotificationCenter.default.post(name: notificationReset, object: nil)
+            print("the end")
             
-            
-        }else{
-            //bouton gauche qui est appuyer
-            if background.position.x >= -(self.size.width / 2) {
-                return
-            }
         }
 
         background.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))

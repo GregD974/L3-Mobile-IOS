@@ -119,8 +119,8 @@
                                     <outletCollection property="heartsConnect" destination="oyb-GY-anL" collectionClass="NSMutableArray" id="cCj-Rk-GrF"/>
                                 </connections>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-hB-CjA" customClass="ScoreLabel" customModule="BirdHelp" customModuleProvider="target">
-                                <rect key="frame" x="436" y="50" width="54" height="27.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-hB-CjA" customClass="ScoreLabel" customModule="BirdHelp" customModuleProvider="target">
+                                <rect key="frame" x="456" y="50" width="14.333333333333314" height="27.333333333333329"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="1206"/>
+            <point key="canvasLocation" x="1306.9114470842333" y="1205.6074766355139"/>
         </scene>
         <!--Bird View Controller-->
         <scene sceneID="ev6-MY-1is">
@@ -160,7 +160,7 @@
                                 <rect key="frame" x="44" y="0.0" width="838" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellBird" id="z7j-hD-ObN" customClass="BirdCell" customModule="BirdHelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellBird" id="z7j-hD-ObN" customClass="BirdCell" customModule="BirdHelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="838" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7j-hD-ObN" id="if0-8J-jpH">

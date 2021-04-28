@@ -10,9 +10,9 @@ import UIKit
 
 
 class GameOverViewController: UIViewController {
-    static let notificationReset: Notification.Name = .init("NotificationReset")
+    
     @IBAction func didTapReset(){
-        NotificationCenter.default.post(name: Self.notificationReset, object: nil)
+        NotificationCenter.default.post(name: notificationReset, object: nil)
     }
     
 }

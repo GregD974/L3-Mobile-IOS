@@ -9,7 +9,7 @@ import UIKit
 
 
 class ScoreLabel : UILabel {
-    private var score: Int = 0 // on definit le score de base
+     var score: Int = 0 // on definit le score de base
     static let scoreNotification : Notification.Name = Notification.Name.init("scoreNotification") // on crée la variable scoreNotification de type Notification.Name et on l'initialise au nom de scoreNotification
     
     
@@ -23,7 +23,7 @@ class ScoreLabel : UILabel {
             self.text = String(self.score)
         }
         NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
-            let playerId = UserDefaults.standard.string(forKey: "bird")!
+            let playerId = UserDefaults.standard.string(forKey: "playerID")!
             let highScore = UserDefaults.standard.integer(forKey: playerId)
             
             if self.score > highScore {

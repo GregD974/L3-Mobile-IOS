@@ -28,6 +28,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     private var pontHaut : SKSpriteNode!
     private var finalText : SKSpriteNode!
     private var longPlateforme2 : SKSpriteNode!
+    private var ennemie : SKSpriteNode!
     
     
     
@@ -40,6 +41,25 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         print(bodyAName)
         print(bodyBName)
         print("---")
+        
+        if bodyAName == "limitLeft" || bodyBName == "limitLeft"{
+            //self.removeAllAct()
+        }
+        
+        if bodyAName == "ennemie" || bodyBName == "ennemie"{
+
+            NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
+            if bodyAName == "ennemie"{
+                contact.bodyA.node?.removeFromParent()
+                //contact.bodyA.node?.physicsBody?.contactTestBitMask = 0
+            }else{
+                contact.bodyB.node?.removeFromParent()
+                //contact.bodyB.node?.physicsBody?.contactTestBitMask = 0
+                
+            }
+
+        }
+        
         if bodyAName == "Coin" || bodyBName == "Coin"{
             NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
             if bodyAName == "Coin"{
@@ -93,6 +113,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.longPlateforme2 = (childNode(withName: "//longPlateforme2")as! SKSpriteNode)
         self.pontHaut = (childNode(withName: "//pontHaut")as! SKSpriteNode)
         self.finalText = (childNode(withName: "//finaltext")as! SKSpriteNode)
+        self.ennemie = (childNode(withName: "//ennemie")as! SKSpriteNode)
         
         enumerateChildNodes(withName: "//Coin") { (coin, _) in
             self.coin.append(coin as! SKSpriteNode)
@@ -164,6 +185,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme2.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         pontHaut.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         finalText.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        ennemie.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         if x > 0{
             perso.run(SKAction.init(named:"animateLeft" )!)
             
@@ -181,12 +203,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         debugPrint(background.position.x)
         debugPrint( -(self.size.width / 2))
         debugPrint("---")
-        if x > -800 {
-            //bouton droite qui est appuyer
-            //NotificationCenter.default.post(name: notificationReset, object: nil)
-            print("the end")
-            
-        }
+
 
         background.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         plateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
@@ -199,6 +216,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme2.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         pontHaut.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         finalText.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        ennemie.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         if x > 0{
             perso.run(SKAction.init(named:"animateLeft" )!)
             
@@ -227,6 +245,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         pontHaut.removeAllActions()
         finalText.removeAllActions()
         perso.removeAllActions()
+        ennemie.removeAllActions()
         
         
         
@@ -267,8 +286,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func  didTapJump() {
-        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 70), duration: dxDuration))
-        
+        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: scene!.size.height * 0.10), duration: dxDuration))
+    
         
     }
 }

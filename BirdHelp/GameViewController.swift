@@ -11,23 +11,23 @@ import GameplayKit
 // la classe gameviewcontroller hérite du type UIviewcontroller
 class GameViewController: UIViewController {
     // on rattache le scoreLabel avec IBoutlet
-    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var scoreLabel: ScoreLabel!
     var scene: GameScene!
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { _ in
+            NotificationCenter.default.post(name: notifAppGameWin, object: nil)
+        })
         NotificationCenter.default.addObserver(forName:notificationReset, object: nil, queue: .main) { _ in
             self.configurationScene()
         }
         NotificationCenter.default.addObserver(forName: notifAppGameWin, object: nil, queue: .main) { _ in
-            let alertController = UIAlertController.init(title: "Win", message: "You win", preferredStyle: UIAlertController.Style.alert)
-            let buttonC = UIAlertAction.init(title: "Okay", style: UIAlertAction.Style.default) { _ in
-                NotificationCenter.default.post(name: notificationReset, object: nil)
-            }
-            alertController.addAction(buttonC)
-            self.present(alertController, animated: true) {
-                
-            }
+            let viewController = self.storyboard!.instantiateViewController(withIdentifier: "succes") as! SuccesViewController
+            
+            viewController.score = self.scoreLabel.score
+            self.present(viewController, animated: true, completion: nil)
         }
         configurationScene()
 
@@ -71,9 +71,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    func toto() {
-        
-    }
+    
     
     func didSelectBird(_ bird: Bird) {
         debugPrint(bird)

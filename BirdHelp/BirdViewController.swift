@@ -10,14 +10,14 @@ import UIKit
 //UIviewcontroller : gestion de la liste des oiseaux,
 
 class BirdViewController: UIViewController{
-    
+    //pourquoi
     weak var controller: GameViewController!//
     // commentaire a mettre
     @IBOutlet var tableView: UITableView!//
-    var birdTableViewDataSourceAndDelegate: BirdTableViewDataSourceAndDelegate!//
+    var birdTableViewDataSourceAndDelegate: BirdTableViewDataSourceAndDelegate!// pourquoi
     override func viewDidLoad() { //
         super.viewDidLoad() //
-        
+        //moyen de communication entre les ecran pour
         birdTableViewDataSourceAndDelegate = BirdTableViewDataSourceAndDelegate.init() //
         birdTableViewDataSourceAndDelegate.controller = self//
         tableView.dataSource = birdTableViewDataSourceAndDelegate//
@@ -40,6 +40,7 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
         
         return [
             Bird.init(name: "Chuck", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
+            Bird.init(name: "Chuck 2", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
         
         ]
     }()
@@ -49,11 +50,11 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
     }
     //commentaire a mettre
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {//creer une cellule
-        //commentaire a mettre
+        //commentaire a mettre : pourquoi
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellBird") else {
             return UITableViewCell()
         }
-        //commentaire a mettre as pour cast
+        //commentaire a mettre as pour cast : pourquoi
         guard let cellBird = cell as? BirdCell else {
             return UITableViewCell()
         }

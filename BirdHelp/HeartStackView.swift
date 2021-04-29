@@ -18,8 +18,12 @@ class HeartStackView:UIStackView {
         super.awakeFromNib() // fait la liaison avec UISTACKVIEW
         //On procede a une ecoute
         NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification, object: nil, queue: .main) { _ in
-            let heartToHide = self.heartsConnect.reversed().first { (imageView) -> Bool in
-                if imageView.isHidden == false {
+            // heartsConnect [heart1.isHidden false, heart2.isHidden false, heart3.isHidden true]
+            // isHidden false == heart is visible ;  isHidden true == heart is lost
+            // reversed [heart3 isHidden true, heart2 isHidden false, heart1 isHidden false]
+            // heart3.isHidden,
+            let heartToHide = self.heartsConnect.reversed().first { (heart) -> Bool in
+                if heart.isHidden == false {
                     return true
                 } else {
                     return false
@@ -30,10 +34,24 @@ class HeartStackView:UIStackView {
             if self.testGameOver() {
                 NotificationCenter.default.post(name: notifAppGameOver, object: nil)
             }
-        } // notification pour clavier / appli fermer etc
+        } // notification pour ,
         NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
             for heart in self.heartsConnect{
                 heart.isHidden = false
+            }
+        }
+        NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification , object: nil, queue: .main) { _ in
+            let heartToHide = self.heartsConnect.reversed().first { (heart) -> Bool in
+                if heart.isHidden == false {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            heartToHide?.isHidden = true
+            
+            if self.testGameOver() {
+                NotificationCenter.default.post(name: notifAppGameOver, object: nil)
             }
         }
     }

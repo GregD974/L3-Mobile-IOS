@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if UserDefaults.standard.string(forKey: "bird") == nil {
-            UserDefaults.standard.set("ally_chuck", forKey: "bird")
+        if UserDefaults.standard.string(forKey: "playerID") == nil {
+            UserDefaults.standard.set("ally_chuck", forKey: "playerID")
         }
         
         

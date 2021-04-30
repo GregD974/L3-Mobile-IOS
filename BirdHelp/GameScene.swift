@@ -31,6 +31,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     private var ennemie : SKSpriteNode!
     private var limitLeft: SKSpriteNode!
     private var limitRight : SKSpriteNode!
+    private var endGame : SKSpriteNode!
     
     
     
@@ -118,6 +119,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.ennemie = (childNode(withName: "//ennemie")as! SKSpriteNode)
         self.limitLeft = (childNode(withName: "//limitLeft")as! SKSpriteNode)
         self.limitRight = (childNode(withName: "//limitRight")as! SKSpriteNode)
+        self.endGame = (childNode(withName: "//endGame")as! SKSpriteNode)
         enumerateChildNodes(withName: "//Coin") { (coin, _) in
             self.coin.append(coin as! SKSpriteNode)
         }
@@ -166,8 +168,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
+    func playerHasIntersectionWithEndGame() {
+        if perso.intersects(endGame){
+            NotificationCenter.default.post(name: notifAppGameWin, object: nil)
+            
+        }
+    }
     override func update(_ currentTime: TimeInterval) {
+        playerHasIntersectionWithEndGame()
+        
         if background.action(forKey: "forever") != nil {
 
             if directionLeft {
@@ -204,6 +213,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         longPlateforme2.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         pontHaut.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        endGame.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         
         ennemie.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         if x > 0{
@@ -228,7 +238,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         longPlateforme2.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         pontHaut.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
-        
+        endGame.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         ennemie.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         if x > 0{
             perso.run(SKAction.init(named:"animateLeft" )!)
@@ -253,7 +263,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.removeAllActions()
         longPlateforme2.removeAllActions()
         pontHaut.removeAllActions()
-       
+        endGame.removeAllActions()
         perso.removeAllActions()
         ennemie.removeAllActions()
         

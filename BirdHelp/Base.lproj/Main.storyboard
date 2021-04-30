@@ -78,6 +78,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7U1-1P-eki">
                                 <rect key="frame" x="443.66666666666669" y="381.33333333333331" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="didTapClose" destination="geL-F7-sIy" eventType="touchUpInside" id="fI1-t4-6zV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qbU-FS-tH6"/>

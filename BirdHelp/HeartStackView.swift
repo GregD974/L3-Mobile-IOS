@@ -34,28 +34,14 @@ class HeartStackView:UIStackView {
             if self.testGameOver() {
                 NotificationCenter.default.post(name: notifAppGameOver, object: nil)
             }
-        } // notification pour ,
+        } //
         NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
             for heart in self.heartsConnect{
                 heart.isHidden = false
             }
         }
-        NotificationCenter.default.addObserver(forName: Self.enemyCollisionNotification , object: nil, queue: .main) { _ in
-            let heartToHide = self.heartsConnect.reversed().first { (heart) -> Bool in
-                if heart.isHidden == false {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            heartToHide?.isHidden = true
-            
-            if self.testGameOver() {
-                NotificationCenter.default.post(name: notifAppGameOver, object: nil)
-            }
-        }
     }
-    
+    // on boucle sur les coeurs ,On crée un compteur quand il arrive a 3 cela veut dire que les 3 coeurs sont cacher donc qu'on doit declancher le GameOver
     func testGameOver() -> Bool {
         var counter: Int = 0
         for item in heartsConnect {

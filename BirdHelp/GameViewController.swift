@@ -17,9 +17,9 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { _ in
+        /*timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { _ in
             NotificationCenter.default.post(name: notifAppGameWin, object: nil)
-        })
+        })*/
         NotificationCenter.default.addObserver(forName:notificationReset, object: nil, queue: .main) { _ in
             self.configurationScene()
         }
@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return true
     }
-    //commentaire a mettre
+    //commentaire a mettre chap 7
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? BirdViewController {
             destination.controller = self
@@ -90,7 +90,7 @@ class GameViewController: UIViewController {
         
         scene.didTapLeftTouchUp() //
         timerLeft?.invalidate()
-    } // comment
+    } 
 
     //comment
     var timerRight: Timer?

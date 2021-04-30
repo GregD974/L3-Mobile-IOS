@@ -26,9 +26,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     private var goldenPlat : SKSpriteNode!
     private var longPlateforme : SKSpriteNode!
     private var pontHaut : SKSpriteNode!
-    private var finalText : SKSpriteNode!
+    
     private var longPlateforme2 : SKSpriteNode!
     private var ennemie : SKSpriteNode!
+    private var limitLeft: SKSpriteNode!
+    private var limitRight : SKSpriteNode!
     
     
     
@@ -47,7 +49,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
         
         if bodyAName == "ennemie" || bodyBName == "ennemie"{
-
+            
             NotificationCenter.default.post(name: HeartStackView.enemyCollisionNotification, object: nil)
             if bodyAName == "ennemie"{
                 contact.bodyA.node?.removeFromParent()
@@ -57,7 +59,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 //contact.bodyB.node?.physicsBody?.contactTestBitMask = 0
                 
             }
-
+            
         }
         
         if bodyAName == "Coin" || bodyBName == "Coin"{
@@ -99,7 +101,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         scene?.physicsWorld.contactDelegate = self
         
-
+        
         // Commentaire a mettre
         self.background = (childNode(withName:"//bg") as! SKSpriteNode)
         self.perso = (childNode(withName: "//perso")as! SKSpriteNode)
@@ -112,9 +114,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.longPlateforme = (childNode(withName: "//longPlateforme")as! SKSpriteNode)
         self.longPlateforme2 = (childNode(withName: "//longPlateforme2")as! SKSpriteNode)
         self.pontHaut = (childNode(withName: "//pontHaut")as! SKSpriteNode)
-        self.finalText = (childNode(withName: "//finaltext")as! SKSpriteNode)
-        self.ennemie = (childNode(withName: "//ennemie")as! SKSpriteNode)
         
+        self.ennemie = (childNode(withName: "//ennemie")as! SKSpriteNode)
+        self.limitLeft = (childNode(withName: "//limitLeft")as! SKSpriteNode)
+        self.limitRight = (childNode(withName: "//limitRight")as! SKSpriteNode)
         enumerateChildNodes(withName: "//Coin") { (coin, _) in
             self.coin.append(coin as! SKSpriteNode)
         }
@@ -165,16 +168,33 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        if background.action(forKey: "forever") != nil {
+
+            if directionLeft {
+                
+                
+                if !canMoveLeft(){
+                    removeAllAct()
+                }
+                
+            } else{
+                if !canMoveRight(){
+                    removeAllAct()
+                }
+            }
+        }
     }
     func moveByXforever(_ x:Int, _ duration:Double){
+        
         debugPrint("---")
         debugPrint(x)
         debugPrint(background.position.x)
         debugPrint( -(self.size.width / 2))
         debugPrint("---")
-
-        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        
+        
+        
+        background.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)), withKey: "forever")
         plateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         texturePont.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         platHaut1.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
@@ -184,7 +204,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         longPlateforme2.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         pontHaut.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
-        finalText.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+        
         ennemie.run(.repeatForever(.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
         if x > 0{
             perso.run(SKAction.init(named:"animateLeft" )!)
@@ -198,13 +218,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
     }
     func moveByX(_ x:Int, _ duration:Double){
-        debugPrint("---")
-        debugPrint(x)
-        debugPrint(background.position.x)
-        debugPrint( -(self.size.width / 2))
-        debugPrint("---")
-
-
         background.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         plateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         texturePont.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
@@ -215,7 +228,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         longPlateforme2.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         pontHaut.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
-        finalText.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
+        
         ennemie.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
         if x > 0{
             perso.run(SKAction.init(named:"animateLeft" )!)
@@ -224,9 +237,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             perso.run(SKAction.init(named:"animateRight" )!)
             
         }
-        
-        
-        
         for item in coin{
             item.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
             
@@ -243,7 +253,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         longPlateforme.removeAllActions()
         longPlateforme2.removeAllActions()
         pontHaut.removeAllActions()
-        finalText.removeAllActions()
+       
         perso.removeAllActions()
         ennemie.removeAllActions()
         
@@ -259,23 +269,36 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     //Fonction pour que le personnage bouge de -15 sur la gauche avec un temps de 100 miliseconde pour le bouton gauche
     var dx:Int = 15
     var dxDuration:Double =  0.1
+    var directionLeft: Bool = false
     func  didTapLeft() {
-        moveByX(dx, dxDuration)
+        directionLeft = true
+        if canMoveLeft(){
+            moveByX(dx, dxDuration)
+        }
     }
     //fonction utiliser pour quand on reste appuyer sur le bouton cela répète le mouvement
     func didTapLeftForever(){
-        moveByXforever(dx, dxDuration)
+        if canMoveRight() {
+            moveByXforever(dx, dxDuration)
+        }
     }
+    
     //fonction utiliser pour quand il arrête d'appuyer cela arrete le mouvement dans tout les cas
     func didTapLeftTouchUp(){
         removeAllAct()
         
     }
     func  didTapRight() {
-        moveByX(-dx, dxDuration)
+        directionLeft = false
+        if canMoveRight(){
+            moveByX(-dx, dxDuration)
+        }
     }
     func didTapRightForever(){
-        moveByXforever(-dx, dxDuration)
+        if canMoveRight(){
+            moveByXforever(-dx, dxDuration)
+            
+        }
         
     }
     
@@ -286,8 +309,44 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func  didTapJump() {
-        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: scene!.size.height * 0.10), duration: dxDuration))
-    
+        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 80), duration: dxDuration))
+        //perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: scene!.size.height * 0.10), duration: dxDuration))
+        
         
     }
+    func canMoveLeft() -> Bool{
+        
+        let oldPosition = background.position
+        var newPositionLeft = background.position
+        newPositionLeft.x += CGFloat(dx)
+        background.position = newPositionLeft
+        if background.intersects(limitRight){
+            background.position = oldPosition
+            print(#function + " false")
+            return false
+        }
+        else{
+            print(#function + " true")
+            background.position = oldPosition
+            return true
+        }
+    }
+    func canMoveRight() -> Bool{
+        let oldPosition = background.position
+        var newPositionRight = background.position
+        newPositionRight.x -= CGFloat(dx)
+        background.position = newPositionRight
+        
+        if background.intersects(limitLeft){
+            background.position = oldPosition
+            print(#function + " false")
+            return false
+        }
+        else{
+            background.position = oldPosition
+            print(#function + " true")
+            return true
+        }
+    }
 }
+

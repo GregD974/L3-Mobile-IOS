@@ -44,21 +44,21 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
         
         ]
     }()
-    //commentaire a mettre
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // nombre de ligne
         return birds.count // retourne 4 cellule / oiseau
     }
-    //commentaire a mettre
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {//creer une cellule
-        //commentaire a mettre : pourquoi
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellBird") else {
             return UITableViewCell()
         }
-        //commentaire a mettre as pour cast : pourquoi
+       
         guard let cellBird = cell as? BirdCell else {
             return UITableViewCell()
         }
-        //commentaire a mettre
+        
         cellBird.label1.text = birds[indexPath.row].name // recupere le nom de chaque oiseaux
         cellBird.label2.text = String(birds[indexPath.row].highScore) //
         cellBird.label3.text = birds[indexPath.row].levelName
@@ -74,6 +74,7 @@ class BirdTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITabl
     
 }
 //commentaire a mettre
+
 struct Bird {
     var name:String
     var highScore:Int

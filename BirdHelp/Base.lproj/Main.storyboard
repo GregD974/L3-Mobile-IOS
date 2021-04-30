@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAz-eA-8G9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="1076"/>
+            <point key="canvasLocation" x="466" y="1249"/>
         </scene>
         <!--Succes View Controller-->
         <scene sceneID="CoQ-tN-MRs">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdT-oR-F62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="471"/>
+            <point key="canvasLocation" x="1164" y="412"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306.9114470842333" y="1205.6074766355139"/>
+            <point key="canvasLocation" x="1164" y="1248"/>
         </scene>
         <!--Bird View Controller-->
         <scene sceneID="ev6-MY-1is">
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHC-Ag-sNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2395.6521739130435" y="1309.8214285714284"/>
+            <point key="canvasLocation" x="1822" y="1248"/>
         </scene>
     </scenes>
     <resources>

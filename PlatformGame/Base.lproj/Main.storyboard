@@ -11,7 +11,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="I8i-eD-aBK">
             <objects>
-                <viewController storyboardIdentifier="gameover" id="RVH-rz-HiU" customClass="GameOverViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameover" id="RVH-rz-HiU" customClass="GameOverViewController" customModule="PlatformGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNh-4x-8Yf">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,13 +50,13 @@
         <!--Succes View Controller-->
         <scene sceneID="CoQ-tN-MRs">
             <objects>
-                <viewController storyboardIdentifier="succes" id="geL-F7-sIy" customClass="SuccesViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="succes" id="geL-F7-sIy" customClass="SuccesViewController" customModule="PlatformGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J6H-Jy-8w4">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Untitled" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-cc-Hb1">
-                                <rect key="frame" x="147" y="100" width="632" height="228"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youwin" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-cc-Hb1">
+                                <rect key="frame" x="150" y="100" width="626" height="228"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h1m-fz-MyT">
                                 <rect key="frame" x="425" y="356" width="76" height="20.333333333333314"/>
@@ -106,7 +106,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="PlatformGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +152,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6UD-9N-3fV" userLabel="Stack View Heart" customClass="HeartStackView" customModule="BirdHelp" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6UD-9N-3fV" userLabel="Stack View Heart" customClass="HeartStackView" customModule="PlatformGame" customModuleProvider="target">
                                 <rect key="frame" x="104" y="50" width="70" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="ff4-8M-1Zh">
@@ -175,7 +175,7 @@
                                     <outletCollection property="heartsConnect" destination="oyb-GY-anL" collectionClass="NSMutableArray" id="cCj-Rk-GrF"/>
                                 </connections>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-hB-CjA" customClass="ScoreLabel" customModule="BirdHelp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-hB-CjA" customClass="ScoreLabel" customModule="PlatformGame" customModuleProvider="target">
                                 <rect key="frame" x="456" y="50" width="14.333333333333314" height="27.333333333333329"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -205,7 +205,7 @@
         <!--Player View Controller-->
         <scene sceneID="ev6-MY-1is">
             <objects>
-                <viewController id="UB2-6m-moM" customClass="PlayerViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UB2-6m-moM" customClass="PlayerViewController" customModule="PlatformGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJW-iG-TY7">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
                                 <rect key="frame" x="44" y="0.0" width="838" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellPlayer" id="z7j-hD-ObN" customClass="PlayerCell" customModule="BirdHelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellPlayer" id="z7j-hD-ObN" customClass="PlayerCell" customModule="PlatformGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="838" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7j-hD-ObN" id="if0-8J-jpH">
@@ -305,12 +305,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Untitled" width="632" height="437"/>
         <image name="arrowleft" width="50" height="50"/>
         <image name="arrowright" width="50" height="50"/>
         <image name="buttonA" width="50" height="50"/>
         <image name="heart" width="125" height="125"/>
         <image name="menu" width="106" height="109"/>
+        <image name="youwin" width="626" height="626"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

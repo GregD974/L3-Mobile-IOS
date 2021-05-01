@@ -175,7 +175,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval) {
         playerHasIntersectionWithEndGame()
-        
+    
+        if checkIfDrown() {
+            NotificationCenter.default.post(name: notifAppGameOver, object: nil)
+        }
+
         if background.action(forKey: "forever") != nil {
 
             if directionLeft {
@@ -191,7 +195,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 }
             }
         }
+        
     }
+    func checkIfDrown() -> Bool{
+        if !background.intersects(perso){
+            return true
+        }
+        return false
+    }
+
     func moveByXforever(_ x:Int, _ duration:Double){
         
         

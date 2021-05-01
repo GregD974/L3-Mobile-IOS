@@ -13,6 +13,7 @@ class GameOverViewController: UIViewController {
     
     @IBAction func didTapReset(){
         NotificationCenter.default.post(name: notificationReset, object: nil)
+        
     }
     
 }

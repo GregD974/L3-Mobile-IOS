@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
         })*/
         NotificationCenter.default.addObserver(forName:notificationReset, object: nil, queue: .main) { _ in
             self.configurationScene()
+            self.dismiss(animated: true, completion: nil)
         }
         NotificationCenter.default.addObserver(forName: notifAppGameWin, object: nil, queue: .main) { _ in
             let viewController = self.storyboard!.instantiateViewController(withIdentifier: "succes") as! SuccesViewController

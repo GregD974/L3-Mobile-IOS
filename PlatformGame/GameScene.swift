@@ -312,8 +312,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func  didTapJump() {
-        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 80), duration: dxDuration))
-        //perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: scene!.size.height * 0.10), duration: dxDuration))
+        //perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: 80), duration: dxDuration))
+        perso.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: scene!.size.height * 0.10), duration: dxDuration))
         
         
     }

@@ -40,10 +40,10 @@ class PlayerTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITa
         let player3HighScore = UserDefaults.standard.integer(forKey: "player3HighScore")
         let player4HighScore = UserDefaults.standard.integer(forKey: "player4HighScore")
         
-        let player1 = Player.init(id : 1, name: "PlayerName1", highScore: player1HighScore, levelName: "Ocean" ,spriteName: "player1Sprite")
-        let player2 = Player.init(id: 2 ,name: "PlayerName2", highScore: player2HighScore, levelName: "Ocean" , spriteName: "player2Sprite")
-        let player3 = Player.init(id: 3 ,name: "PlayerName3", highScore: player3HighScore, levelName: "Ocean" , spriteName: "player3Sprite")
-        let player4 = Player.init(id: 4 ,name: "PlayerName4", highScore: player4HighScore, levelName: "Ocean" , spriteName: "player4Sprite")
+        let player1 = Player.init(id : 1, name: "Chuck", highScore: player1HighScore, levelName: "GodValley" ,spriteName: "player1Sprite")
+        let player2 = Player.init(id: 2 ,name: "Will", highScore: player2HighScore, levelName: "Little Garden" , spriteName: "player2Sprite")
+        let player3 = Player.init(id: 3 ,name: "Nuck", highScore: player3HighScore, levelName: "Skypia" , spriteName: "player3Sprite")
+        let player4 = Player.init(id: 4 ,name: "Fox", highScore: player4HighScore, levelName: "Laugh Tale" , spriteName: "player4Sprite")
 
         
         return [

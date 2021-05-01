@@ -229,7 +229,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             
         }
         for item in coin{
-            item.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)))
+            item.run(.repeatForever(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration)),withKey: "move")
         }
     }
     func moveByX(_ x:Int, _ duration:Double){
@@ -253,8 +253,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             
         }
         for item in coin{
-            item.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration))
-            
+            item.run(SKAction.move(by: CGVector.init(dx: x, dy: 0), duration: duration), withKey: "move")
         }
     }
     func removeAllAct(){
@@ -275,7 +274,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         
         for item in coin{
-            item.removeAllActions()
+            item.removeAction(forKey: "move")
             
         }
         

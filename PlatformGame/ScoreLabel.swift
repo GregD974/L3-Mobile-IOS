@@ -23,13 +23,6 @@ class ScoreLabel : UILabel {
             self.text = String(self.score)
         }
         NotificationCenter.default.addObserver(forName: notificationReset, object: nil, queue: .main) { _ in
-            let playerId = UserDefaults.standard.string(forKey: "playerID")!
-            let highScore = UserDefaults.standard.integer(forKey: playerId)
-            
-            if self.score > highScore {
-                UserDefaults.standard.setValue(self.score, forKey: playerId)
-            }
-            
            
             self.score = 0
             self.text = String(self.score)

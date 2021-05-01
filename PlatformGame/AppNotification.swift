@@ -11,3 +11,4 @@ let notifAppGameOver: Notification.Name = .init("notifGameOver")
 let notifAppGameWin: Notification.Name = .init("Win")
 
 let notificationReset: Notification.Name = .init("NotificationReset")
+let notificationDidSelectPlayer: Notification.Name = .init("notificationDidSelectPlayer")

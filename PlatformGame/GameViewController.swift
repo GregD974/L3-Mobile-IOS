@@ -73,10 +73,11 @@ class GameViewController: UIViewController {
     
     
     
-    func didSelectPlayer(_ player: Player) {
-        debugPrint(player)
+    func didSelectPlayer() {
+        
         dismiss(animated: true, completion: nil)
     }
+    
     //comment
     var timerLeft: Timer?
     @IBAction func didTapLeft(){

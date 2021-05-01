@@ -15,8 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if UserDefaults.standard.string(forKey: "playerID") == nil {
-            UserDefaults.standard.set("ally_chuck", forKey: "playerID")
+        if UserDefaults.standard.string(forKey: kPlayerId) == nil {
+            UserDefaults.standard.set(1, forKey: kPlayerId)
+            UserDefaults.standard.set(0, forKey: kPlayer1HighScore)
+            UserDefaults.standard.set(0, forKey: kPlayer2HighScore)
+            UserDefaults.standard.set(0, forKey: kPlayer3HighScore)
+            UserDefaults.standard.set(0, forKey: kPlayer4HighScore)
+            UserDefaults.standard.set("player1Sprite", forKey: kPlayerSprite)
+            
         }
         
         

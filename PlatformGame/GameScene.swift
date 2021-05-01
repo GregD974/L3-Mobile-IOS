@@ -41,9 +41,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         guard let bodyAName = contact.bodyA.node?.name, let bodyBName = contact.bodyB.node?.name else {
             return
         }
-        print(bodyAName)
-        print(bodyBName)
-        print("---")
+        
         
         if bodyAName == "limitLeft" || bodyBName == "limitLeft"{
             //self.removeAllAct()
@@ -65,6 +63,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         if bodyAName == "Coin" || bodyBName == "Coin"{
             NotificationCenter.default.post(name: ScoreLabel.scoreNotification, object: nil)
+            scene?.run(.playSoundFileNamed("coin", waitForCompletion: false))
             if bodyAName == "Coin"{
                 contact.bodyA.node?.removeFromParent()
             }else{
@@ -194,12 +193,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
     }
     func moveByXforever(_ x:Int, _ duration:Double){
-        
-        debugPrint("---")
-        debugPrint(x)
-        debugPrint(background.position.x)
-        debugPrint( -(self.size.width / 2))
-        debugPrint("---")
         
         
         
@@ -332,11 +325,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         background.position = newPositionLeft
         if background.intersects(limitRight){
             background.position = oldPosition
-            print(#function + " false")
+            
             return false
         }
         else{
-            print(#function + " true")
+            
             background.position = oldPosition
             return true
         }
@@ -349,12 +342,12 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         if background.intersects(limitLeft){
             background.position = oldPosition
-            print(#function + " false")
+            
             return false
         }
         else{
             background.position = oldPosition
-            print(#function + " true")
+            
             return true
         }
     }

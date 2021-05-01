@@ -24,8 +24,8 @@ class PlayerViewController: UIViewController{
         tableView.delegate = playerTableViewDataSourceAndDelegate//
     }
     //commentaire a mettre
-    func didSelectPlayer(_ player: Player) {
-        controller.didSelectPlayer(player)//
+    func didSelectPlayer() {
+        controller.didSelectPlayer()//
     }
     
 }
@@ -35,14 +35,22 @@ class PlayerTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITa
     weak var controller: PlayerViewController! //
     //Initialise les 4 personnage
     var players: [Player] = {
-        let allyChuckScore = UserDefaults.standard.integer(forKey: "ally_chuck")
+        let player1HighScore = UserDefaults.standard.integer(forKey: "player1HighScore")
+        let player2HighScore = UserDefaults.standard.integer(forKey: "player2HighScore")
+        let player3HighScore = UserDefaults.standard.integer(forKey: "player3HighScore")
+        let player4HighScore = UserDefaults.standard.integer(forKey: "player4HighScore")
         
+        let player1 = Player.init(id : 1, name: "PlayerName1", highScore: player1HighScore, levelName: "Ocean" ,spriteName: "player1Sprite")
+        let player2 = Player.init(id: 2 ,name: "PlayerName2", highScore: player2HighScore, levelName: "Ocean" , spriteName: "player2Sprite")
+        let player3 = Player.init(id: 3 ,name: "PlayerName3", highScore: player3HighScore, levelName: "Ocean" , spriteName: "player3Sprite")
+        let player4 = Player.init(id: 4 ,name: "PlayerName4", highScore: player4HighScore, levelName: "Ocean" , spriteName: "player4Sprite")
+
         
         return [
-            Player.init(name: "Chuck", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Player.init(name: "Chuck 2", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Player.init(name: "Chuck 2", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
-            Player.init(name: "Chuck 2", highScore: allyChuckScore, levelName: "Ocean" ,image: UIImage.init(named: "ally_chuck")!),
+           player1,
+            player2,
+            player3,
+            player4,
         ]
     }()
     
@@ -63,22 +71,28 @@ class PlayerTableViewDataSourceAndDelegate: NSObject, UITableViewDataSource,UITa
         cellPlayer.label1.text = players[indexPath.row].name // recupere le nom de chaque personnage
         cellPlayer.label2.text = String(players[indexPath.row].highScore) //
         cellPlayer.label3.text = players[indexPath.row].levelName
-        cellPlayer.imageViewPlayer.image = players[indexPath.row].image
+        let image = UIImage.init(named: players[indexPath.row].spriteName)
+        cellPlayer.imageViewPlayer.image = image
         cellPlayer.configure()
         
         return cell
     }
     //savoir quelle celule est selectionner
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        controller.didSelectPlayer(players[indexPath.row])
+        let player = players[indexPath.row]
+        UserDefaults.standard.set(player.id, forKey: kPlayerId)
+        UserDefaults.standard.set(player.spriteName, forKey: kPlayerSprite)
+        controller.didSelectPlayer()
+        NotificationCenter.default.post(name: notificationDidSelectPlayer, object: nil)
     }
     
 }
 //commentaire a mettre
 
 struct Player {
+    var id: Int
     var name:String
     var highScore:Int
     var levelName:String
-    var image: UIImage
+    var spriteName: String
 }

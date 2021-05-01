@@ -13,11 +13,11 @@
 		B8193E5B26199FEE00496980 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8193E5A26199FEE00496980 /* GameViewController.swift */; };
 		B8193E5E26199FEE00496980 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8193E5C26199FEE00496980 /* Main.storyboard */; };
 		B8193E6026199FEF00496980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8193E5F26199FEF00496980 /* Assets.xcassets */; };
-		B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* BirdCell.swift */; };
+		B8486B6F261AEBF700D08E3E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8486B6E261AEBF700D08E3E /* PlayerCell.swift */; };
 		B894649E263B278300E2F33F /* SuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894649D263B278300E2F33F /* SuccesViewController.swift */; };
 		B89F6ED02639D881008D148A /* app_src_main_res_raw_theme (1).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89F6ECF2639D880008D148A /* app_src_main_res_raw_theme (1).mp3 */; };
 		B8ACEE8126387DE900FBD458 /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8ACEE8026387DE900FBD458 /* MyActions.sks */; };
-		B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63959261CBBBD009FBABA /* BirdViewController.swift */; };
+		B8B6395A261CBBBD009FBABA /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63959261CBBBD009FBABA /* PlayerViewController.swift */; };
 		B8B63962261CCD96009FBABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */; };
 		B8D08281262B3DA1009406E3 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D08280262B3DA1009406E3 /* GameOverViewController.swift */; };
 		B8D08286262B4A67009406E3 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D08285262B4A67009406E3 /* AppNotification.swift */; };
@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B8193E4F26199FEE00496980 /* BirdHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8193E4F26199FEE00496980 /* PlatformGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatformGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8193E5226199FEE00496980 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8193E5426199FEE00496980 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B8193E5826199FEE00496980 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -34,11 +34,11 @@
 		B8193E5D26199FEE00496980 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8193E5F26199FEF00496980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8193E6126199FEF00496980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8486B6E261AEBF700D08E3E /* BirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCell.swift; sourceTree = "<group>"; };
+		B8486B6E261AEBF700D08E3E /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		B894649D263B278300E2F33F /* SuccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesViewController.swift; sourceTree = "<group>"; };
 		B89F6ECF2639D880008D148A /* app_src_main_res_raw_theme (1).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "app_src_main_res_raw_theme (1).mp3"; path = "../../../../Music/Music/Media.localized/Unknown Artist/Unknown Album/app_src_main_res_raw_theme (1).mp3"; sourceTree = "<group>"; };
 		B8ACEE8026387DE900FBD458 /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyActions.sks; sourceTree = "<group>"; };
-		B8B63959261CBBBD009FBABA /* BirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdViewController.swift; sourceTree = "<group>"; };
+		B8B63959261CBBBD009FBABA /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8D08280262B3DA1009406E3 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		B8D08285262B4A67009406E3 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		B8193E4626199FEE00496980 = {
 			isa = PBXGroup;
 			children = (
-				B8193E5126199FEE00496980 /* BirdHelp */,
+				B8193E5126199FEE00496980 /* PlatformGame */,
 				B8193E5026199FEE00496980 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,18 +68,18 @@
 		B8193E5026199FEE00496980 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8193E4F26199FEE00496980 /* BirdHelp.app */,
+				B8193E4F26199FEE00496980 /* PlatformGame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8193E5126199FEE00496980 /* BirdHelp */ = {
+		B8193E5126199FEE00496980 /* PlatformGame */ = {
 			isa = PBXGroup;
 			children = (
 				B8193E5226199FEE00496980 /* AppDelegate.swift */,
 				B8193E5426199FEE00496980 /* GameScene.sks */,
 				B8193E5A26199FEE00496980 /* GameViewController.swift */,
-				B8B63959261CBBBD009FBABA /* BirdViewController.swift */,
+				B8B63959261CBBBD009FBABA /* PlayerViewController.swift */,
 				B894649D263B278300E2F33F /* SuccesViewController.swift */,
 				B8193E5826199FEE00496980 /* GameScene.swift */,
 				B8ACEE8026387DE900FBD458 /* MyActions.sks */,
@@ -87,22 +87,22 @@
 				B8D9EFC7262AA6AE004A8974 /* HeartStackView.swift */,
 				B8D08285262B4A67009406E3 /* AppNotification.swift */,
 				B8B63961261CCD96009FBABA /* LaunchScreen.storyboard */,
-				B8486B6E261AEBF700D08E3E /* BirdCell.swift */,
+				B8486B6E261AEBF700D08E3E /* PlayerCell.swift */,
 				B8193E5C26199FEE00496980 /* Main.storyboard */,
 				B8D08280262B3DA1009406E3 /* GameOverViewController.swift */,
 				B8D9EFCC262AAFD9004A8974 /* ScoreLabel.swift */,
 				B8193E5F26199FEF00496980 /* Assets.xcassets */,
 				B8193E6126199FEF00496980 /* Info.plist */,
 			);
-			path = BirdHelp;
+			path = PlatformGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8193E4E26199FEE00496980 /* BirdHelp */ = {
+		B8193E4E26199FEE00496980 /* PlatformGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8193E7A26199FF000496980 /* Build configuration list for PBXNativeTarget "BirdHelp" */;
+			buildConfigurationList = B8193E7A26199FF000496980 /* Build configuration list for PBXNativeTarget "PlatformGame" */;
 			buildPhases = (
 				B8193E4B26199FEE00496980 /* Sources */,
 				B8193E4C26199FEE00496980 /* Frameworks */,
@@ -112,9 +112,9 @@
 			);
 			dependencies = (
 			);
-			name = BirdHelp;
+			name = PlatformGame;
 			productName = BirdHelp;
-			productReference = B8193E4F26199FEE00496980 /* BirdHelp.app */;
+			productReference = B8193E4F26199FEE00496980 /* PlatformGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -131,7 +131,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B8193E4A26199FEE00496980 /* Build configuration list for PBXProject "BirdHelp" */;
+			buildConfigurationList = B8193E4A26199FEE00496980 /* Build configuration list for PBXProject "PlatformGame" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8193E4E26199FEE00496980 /* BirdHelp */,
+				B8193E4E26199FEE00496980 /* PlatformGame */,
 			);
 		};
 /* End PBXProject section */
@@ -174,10 +174,10 @@
 				B8D9EFC8262AA6AE004A8974 /* HeartStackView.swift in Sources */,
 				B8193E5926199FEE00496980 /* GameScene.swift in Sources */,
 				B8D08286262B4A67009406E3 /* AppNotification.swift in Sources */,
-				B8B6395A261CBBBD009FBABA /* BirdViewController.swift in Sources */,
+				B8B6395A261CBBBD009FBABA /* PlayerViewController.swift in Sources */,
 				B8D9EFCD262AAFD9004A8974 /* ScoreLabel.swift in Sources */,
 				B8D08281262B3DA1009406E3 /* GameOverViewController.swift in Sources */,
-				B8486B6F261AEBF700D08E3E /* BirdCell.swift in Sources */,
+				B8486B6F261AEBF700D08E3E /* PlayerCell.swift in Sources */,
 				B8193E5B26199FEE00496980 /* GameViewController.swift in Sources */,
 				B8193E5326199FEE00496980 /* AppDelegate.swift in Sources */,
 			);
@@ -319,12 +319,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BirdHelp/Info.plist;
+				INFOPLIST_FILE = PlatformGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GregDono.BirdHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GregDono.PlatformGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -337,12 +337,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BirdHelp/Info.plist;
+				INFOPLIST_FILE = PlatformGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GregDono.BirdHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GregDono.PlatformGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -352,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B8193E4A26199FEE00496980 /* Build configuration list for PBXProject "BirdHelp" */ = {
+		B8193E4A26199FEE00496980 /* Build configuration list for PBXProject "PlatformGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8193E7826199FF000496980 /* Debug */,
@@ -361,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8193E7A26199FF000496980 /* Build configuration list for PBXNativeTarget "BirdHelp" */ = {
+		B8193E7A26199FF000496980 /* Build configuration list for PBXNativeTarget "PlatformGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8193E7B26199FF000496980 /* Debug */,

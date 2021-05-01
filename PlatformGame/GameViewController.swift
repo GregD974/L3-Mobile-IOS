@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  BirdHelp
+//  PlatformGame
 //
 //  Created by user196294 on 4/4/21.
 //
@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
     }
     //commentaire a mettre chap 7
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? BirdViewController {
+        if let destination = segue.destination as? PlayerViewController {
             destination.controller = self
         }
     }
@@ -73,8 +73,8 @@ class GameViewController: UIViewController {
     
     
     
-    func didSelectBird(_ bird: Bird) {
-        debugPrint(bird)
+    func didSelectPlayer(_ player: Player) {
+        debugPrint(player)
         dismiss(animated: true, completion: nil)
     }
     //comment

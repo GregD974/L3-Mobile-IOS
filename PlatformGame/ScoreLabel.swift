@@ -1,6 +1,6 @@
 //
 //  ScoreLabel.swift
-//  BirdHelp
+//  PlatformGame
 //
 //  Created by user196294 on 4/17/21.
 //

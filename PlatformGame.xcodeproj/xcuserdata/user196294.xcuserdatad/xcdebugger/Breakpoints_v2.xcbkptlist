@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DF5EA573-C284-4613-89A3-E9C1016FC99B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7632E53D-BDA1-491F-91FF-886175057E43"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BirdHelp/ScoreLabel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "1"
+            continueAfterRunningActions = "No"
+            filePath = "BirdHelp/ScoreLabel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ScoreLabel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - 2e5075fcd00b0ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.(score in _7F56BCBEE1BA2E8D050EDAE815466EC4).getter : Swift.Int"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - 3c0d64e934c1e4de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.(score in _7F56BCBEE1BA2E8D050EDAE815466EC4).setter : Swift.Int"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "118">
+               </Location>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - 50e4b5cb67bd155"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.(score in _7F56BCBEE1BA2E8D050EDAE815466EC4).modify : Swift.Int"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - bfa8ed80b32a4b6c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.(score in _7F56BCBEE1BA2E8D050EDAE815466EC4).modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - c7a2e3fe0d4fe881"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.init(frame: __C.CGRect) -&gt; BirdHelp.ScoreLabel"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "113">
+               </Location>
+               <Location
+                  uuid = "782638D1-9BD2-4ABB-BF14-19D7F8A7A1F6 - dca5f4862508563d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BirdHelp.ScoreLabel.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;BirdHelp.ScoreLabel&gt;"
+                  moduleName = "BirdHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user196294/Desktop/L3%20projet%20Info:birdhelp%20copy%202/BirdHelp/BirdHelp/ScoreLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "102">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1ADC8020-F909-4479-B71C-981CB1713D9E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BirdHelp/GameScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "didTapJump()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31504BF7-9D53-4BC8-BB4E-ABC03FD5321D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BirdHelp/GameScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "canMoveRight()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

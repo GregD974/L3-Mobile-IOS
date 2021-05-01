@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="1164" y="1248"/>
         </scene>
-        <!--Bird View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="ev6-MY-1is">
             <objects>
-                <viewController id="UB2-6m-moM" customClass="BirdViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UB2-6m-moM" customClass="PlayerViewController" customModule="BirdHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJW-iG-TY7">
                         <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
                                 <rect key="frame" x="44" y="0.0" width="838" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellBird" id="z7j-hD-ObN" customClass="BirdCell" customModule="BirdHelp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellPlayer" id="z7j-hD-ObN" customClass="PlayerCell" customModule="BirdHelp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="838" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7j-hD-ObN" id="if0-8J-jpH">
@@ -276,7 +276,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageViewBird" destination="umF-Sh-B1K" id="yMc-md-XAX"/>
+                                            <outlet property="imageViewPlayer" destination="umF-Sh-B1K" id="yMc-md-XAX"/>
                                             <outlet property="label1" destination="XAR-Mh-rNV" id="CzM-zm-Vjt"/>
                                             <outlet property="label2" destination="0kN-ug-4aB" id="0ob-wg-AFT"/>
                                             <outlet property="label3" destination="O0r-fi-Yne" id="cBx-nW-Swd"/>
